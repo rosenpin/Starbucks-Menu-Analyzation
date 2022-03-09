@@ -53,19 +53,51 @@ for (i in 1:100){
 var(ad_ratio)
 
 ###### C ######
-total_fats <- dataset$Total.Fat..g.
-saturated_fats <- dataset$Saturated.Fat..g.
+# get total fats sorted from low to high
+total_fats <- sort(dataset$Total.Fat..g.)
+# get saturated fats sorted from low to high
+saturated_fats <- sort(dataset$Saturated.Fat..g.)
+# calculate correlation between total fats and saturated fats
 cor_value1 = cor(total_fats, saturated_fats)
 
+# initialize empty vector to store values in later
 cor_vector2 <- c()
 
-dataset_length = length(saturated_fats)
+# get the number of rows in our dataset (total fats and saturated fats have the same count)
+dataset_length = length(total_fats)
+
+# repeat 250 times
 for (i in 1:250){
-  random_total_fat = sort(sample(total_fats, size = dataset_length))
-  random_saturated_fat = sort(sample(saturated_fats, size = dataset_length))
+  # sample from 70% of items
+  random_total_fat = sort(sample(total_fats, size = dataset_length*0.7))
+  random_saturated_fat = sort(sample(saturated_fats, size = dataset_length*0.7))
+  # calculate correlation between total fats and saturated fats
   temp_cor_value = cor(random_total_fat, random_saturated_fat)
+  # store value to draw it later
   cor_vector2 <- append(cor_vector2, temp_cor_value)
 }
 
+# show the graph
 hist(cor_vector2)
+# draw the line where the original value is 
 abline(v=cor_value1)
+
+###### D ######
+# generate random normal distributed vector
+normal_dist <- rnorm(1000)
+# draw it
+hist(normal_dist)
+# initialize counter
+counter = 0
+# repeat until stopped
+while (TRUE){
+  # increase the counter by one
+  counter = counter+1
+  # sample 20% of the items randomly
+  sampled_dist = sample(normal_dist, size = length(normal_dist)*0.2)
+  # if mean!=median (absolute difference is larger than 0.01)
+  if (abs(mean(sampled_dist)-median(sampled_dist)) > 0.01){
+    # stop the loop
+    break
+  }
+}
