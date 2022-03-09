@@ -101,10 +101,6 @@ Signature Espresso Drinks,Caramel Apple Spice (Without Whipped Cream),Short,140,
 Signature Espresso Drinks,Caramel Apple Spice (Without Whipped Cream),Tall,210,0,0,0,0,15,53,0,49,0,0%,0%,0%,0%,0
 Signature Espresso Drinks,Caramel Apple Spice (Without Whipped Cream),Grande,280,0,0,0,0,20,70,0,65,0,0%,0%,0%,0%,0
 Signature Espresso Drinks,Caramel Apple Spice (Without Whipped Cream),Venti,360,0,0,0,0,25,89,0,83,0,0%,0%,0%,0%,0
-Tazo® Tea Drinks,Tazo® Tea,Short,0,0,0,0,0,0,0,0,0,0,0%,0%,0%,0%,Varies
-Tazo® Tea Drinks,Tazo® Tea,Tall,0,0,0,0,0,0,0,0,0,0,0%,0%,0%,0%,Varies
-Tazo® Tea Drinks,Tazo® Tea,Grande,0,0,0,0,0,0,0,0,0,0,0%,0%,0%,0%,Varies
-Tazo® Tea Drinks,Tazo® Tea,Venti,0,0,0,0,0,0,0,0,0,0,0%,0%,0%,0%,Varies
 Tazo® Tea Drinks,Tazo® Chai Tea Latte,Short Nonfat Milk,100,0.1,0.1,0,0,50,22,0,21,4,6%,0%,10%,0%,50
 Tazo® Tea Drinks,Tazo® Chai Tea Latte,2% Milk,120,2,1,0.1,10,55,22,0,21,4,6%,0%,10%,0%,50
 Tazo® Tea Drinks,Tazo® Chai Tea Latte,Soymilk,110,1.5,0.2,0,0,45,20,0,18,3,4%,0%,10%,6%,50
@@ -129,18 +125,6 @@ Tazo® Tea Drinks,Tazo® Green Tea Latte,Soymilk,310,6,1,0,0,140,50,3,46,11,15%,
 Tazo® Tea Drinks,Tazo® Green Tea Latte,Venti Nonfat Milk,370,0.5,0.3,0,10,200,73,2,71,18,30%,20%,60%,6%,110
 Tazo® Tea Drinks,Tazo® Green Tea Latte,2% Milk,450,10,5,0.3,40,230,72,2,71,17,25%,20%,50%,6%,110
 Tazo® Tea Drinks,Tazo® Green Tea Latte,Soymilk,390,8,1,0,0,180,64,4,58,14,20%,20%,60%,30%,110
-Tazo® Tea Drinks,Tazo® Full-Leaf Tea Latte,Short Nonfat Milk,80,0.1,0.1,0,0,45,16,0,16,4,6%,0%,10%,0.00%,varies
-Tazo® Tea Drinks,Tazo® Full-Leaf Tea Latte,2% Milk,90,2,1,0.1,10,50,15,0,15,3,6%,0%,10%,0.00%,varies
-Tazo® Tea Drinks,Tazo® Full-Leaf Tea Latte,Soymilk,80,1.5,0.2,0,0,40,14,0,13,3,4%,0%,10%,6.00%,varies
-Tazo® Tea Drinks,Tazo® Full-Leaf Tea Latte,Tall Nonfat Milk,120,0.1,0.1,0,5,65,23,0,23,5,10%,0%,20%,0.00%,varies
-Tazo® Tea Drinks,Tazo® Full-Leaf Tea Latte,2% Milk,140,3,1.5,0.1,15,75,23,0,23,5,8%,0%,15%,0.00%,varies
-Tazo® Tea Drinks,Tazo® Full-Leaf Tea Latte,Soymilk,130,2.5,0.3,0,0,60,21,1,19,4,6%,0%,20%,8.00%,varies
-Tazo® Tea Drinks,Tazo® Full-Leaf Tea Latte,Grande Nonfat Milk,150,0.2,0.1,0,5,85,31,0,31,7,15%,0%,25%,0.00%,varies
-Tazo® Tea Drinks,Tazo® Full-Leaf Tea Latte,2% Milk,190,4,2,0.1,15,95,31,0,30,7,10%,0%,25%,0.00%,varies
-Tazo® Tea Drinks,Tazo® Full-Leaf Tea Latte,Soymilk,170,3.5,0.4,0,0,80,27,1,25,6,8%,0%,25%,10.00%,varies
-Tazo® Tea Drinks,Tazo® Full-Leaf Tea Latte,Venti Nonfat Milk,190,0.2,0.1,0,5,110,39,0,39,9,15%,0%,30%,0.00%,varies
-Tazo® Tea Drinks,Tazo® Full-Leaf Tea Latte,2% Milk,230,5,2.5,0.2,20,125,38,0,38,9,15%,0%,30%,0.00%,varies
-Tazo® Tea Drinks,Tazo® Full-Leaf Tea Latte,Soymilk,210,4,0.5,0,0,100,34,1,32,7,10%,0%,30%,15.00%,varies
 Tazo® Tea Drinks,Tazo® Full-Leaf Red Tea Latte (Vanilla Rooibos),Short Nonfat Milk,80,0.1,0.1,0,0,45,16,0,16,4,6%,0%,10%,0%,0
 Tazo® Tea Drinks,Tazo® Full-Leaf Red Tea Latte (Vanilla Rooibos),2% Milk,90,2,1,0.1,10,50,15,0,15,3,6%,0%,10%,0%,0
 Tazo® Tea Drinks,Tazo® Full-Leaf Red Tea Latte (Vanilla Rooibos),Soymilk,80,1.5,0.2,0,0,40,14,0,13,3,4%,0%,10%,6%,0
@@ -166,12 +150,6 @@ Shaken Iced Beverages,Iced Brewed Coffee (With Milk & Classic Syrup),Venti Nonfa
 Shaken Iced Beverages,Iced Brewed Coffee (With Milk & Classic Syrup),2% Milk,180,2,1,0.1,10,55,36,0,36,4,6%,0%,10%,0%,170
 Shaken Iced Beverages,Iced Brewed Coffee (With Milk & Classic Syrup),Soymilk,170,1.5,0.2,0,0,45,34,0,33,3,4%,0%,10%,0%,170
 Shaken Iced Beverages,Shaken Iced Tazo® Tea (With Classic Syrup),Tall,60,0,0,0,0,0,15,0,15,0,0%,0%,0%,6%,170
-Shaken Iced Beverages,Shaken Iced Tazo® Tea (With Classic Syrup),Grande,80,0,0,0,0,0,21,0,21,0,0%,0%,0%,0%,Varies
-Shaken Iced Beverages,Shaken Iced Tazo® Tea (With Classic Syrup),Venti,120,0,0,0,0,0,31,0,31,0,0%,0%,0%,0%,Varies
-Shaken Iced Beverages,Shaken Iced Tazo® Tea Lemonade (With Classic Syrup),Tall,100,0,0,0,0,0,25,0,24,0.1,0%,10%,0%,0%,Varies
-Shaken Iced Beverages,Shaken Iced Tazo® Tea Lemonade (With Classic Syrup),Grande,130,0,0,0,0,0,33,0,33,0.1,0%,15%,0%,0%,Varies
-Shaken Iced Beverages,Shaken Iced Tazo® Tea Lemonade (With Classic Syrup),Venti,190,0,0,0,0,0,49,0,49,0.1,0%,20%,0%,0%,Varies
-Smoothies,Banana Chocolate Smoothie,Grande Nonfat Milk,280,2.5,1.5,0,5,150,53,7,34,20,10%,15%,20%,0%,Varies
 Smoothies,Banana Chocolate Smoothie,2% Milk,300,5,2.5,0.1,15,160,53,7,34,20,8%,15%,20%,20%,15
 Smoothies,Banana Chocolate Smoothie,Soymilk,290,4.5,1.5,0,5,150,51,7,31,19,6%,15%,20%,20%,15
 Smoothies,Orange Mango Banana Smoothie,Grande Nonfat Milk,260,1,0.3,0,5,120,54,6,37,16,50%,80%,10%,30%,15
