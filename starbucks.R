@@ -101,3 +101,60 @@ while (TRUE){
     break
   }
 }
+
+###### E ######
+dataset = read.csv(file = "starbucks_drinkMenu_expanded.csv")
+
+library(hash)
+
+categories = dataset$Beverage_category
+unique_categories = unique(categories)
+
+prep = dataset$Beverage_prep
+unique_prep = unique(prep)
+
+#categories_count <- table(categories)
+prep_count <- table(prep)
+
+# get value by key in a matrix 
+# a, 2
+# b, 3
+# c, 5
+# example: get_value_by_key(a) will return 2
+get_value_by_key <- function(mat ,key) {
+  for (i in 1:length(mat[,1])){
+    if (mat[,1][i] == key){
+      return(strtoi(mat[,2][i],base=0L))
+    }
+  }
+}
+
+get_index_by_value <- function(mat ,value) {
+}
+
+
+i = 1
+previous = 1
+
+while (i<=length(categories)) {
+  current = categories[i]
+  conditioned_prep_counts <- hash()
+  current_prep = ""
+  while(categories[i] == current){
+    current_prep = prep[i]
+    if (is.null(conditioned_prep_counts[[current_prep]])){
+      conditioned_prep_counts[[current_prep]] = 1
+    } else{
+      conditioned_prep_counts[[current_prep]] = conditioned_prep_counts[[current_prep]]+1
+    }
+    i = i+1
+    if (i >= length(categories)-1){
+      break
+    }
+  }
+  for (v in names(conditioned_prep_counts)) {
+    output = paste("Conditioned probability of getting", v ,"given", current,"is",conditioned_prep_counts[[v]]/(i-previous))
+    print(output)
+  }
+  previous = i
+}
