@@ -141,6 +141,7 @@ while (i<=length(categories)) {
     # increase the index used for the loop
     i = i+1
     # if i exceeds the length of the categories -1 (including the first line of the csv), break this loop
+    # this is done because the while will loop will not break for the last item
     if (i > length(categories)){
       break
     }
@@ -152,8 +153,7 @@ while (i<=length(categories)) {
     
     # index-previous will yield the number of beverages in our current category
     number_of_beverages_in_category = i-previous
-    print(number_of_beverages_in_category)
-  
+
     # conditioned probability will be the number of times this prep is shown under the category, divided by the total number of items under the category
     conditioned_probability = conditioned_prep_counts[[v]]/number_of_beverages_in_category
     
