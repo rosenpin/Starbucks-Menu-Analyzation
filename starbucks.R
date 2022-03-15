@@ -103,58 +103,70 @@ while (TRUE){
 }
 
 ###### E ######
-dataset = read.csv(file = "starbucks_drinkMenu_expanded.csv")
-
+# import hash library
 library(hash)
 
+# fetch beverage categories
 categories = dataset$Beverage_category
-unique_categories = unique(categories)
+number_of_items = length(categories)
 
+# fetch beverage prep styles
 prep = dataset$Beverage_prep
-unique_prep = unique(prep)
 
-#categories_count <- table(categories)
-prep_count <- table(prep)
-
-# get value by key in a matrix 
-# a, 2
-# b, 3
-# c, 5
-# example: get_value_by_key(a) will return 2
-get_value_by_key <- function(mat ,key) {
-  for (i in 1:length(mat[,1])){
-    if (mat[,1][i] == key){
-      return(strtoi(mat[,2][i],base=0L))
-    }
-  }
-}
-
-get_index_by_value <- function(mat ,value) {
-}
-
-
+# define index for iteration
 i = 1
+# previous will be used to loop through categories while resetting the index for each different category group
 previous = 1
 
+# loop until i is the length of the categories
 while (i<=length(categories)) {
+  # define current category to analyze
   current = categories[i]
+  # define a hash map between prep style and the number of its appearances
   conditioned_prep_counts <- hash()
+  # reset the current_prep
   current_prep = ""
+  # loop until the category changes
   while(categories[i] == current){
+    # get the current prep style inside the category
     current_prep = prep[i]
+    # if we didn't see this prep style before
     if (is.null(conditioned_prep_counts[[current_prep]])){
+      # then update its appearance count to 1
       conditioned_prep_counts[[current_prep]] = 1
-    } else{
+    } else {
+      # otherwise, increase its appearance count
       conditioned_prep_counts[[current_prep]] = conditioned_prep_counts[[current_prep]]+1
     }
+    # increase the index used for the loop
     i = i+1
+    # if i exceeds the length of the categories -1 (including the first line of the csv), break this loop
     if (i >= length(categories)-1){
       break
     }
   }
+  # repeat for all the conditioned preps we counted
   for (v in names(conditioned_prep_counts)) {
-    output = paste("Conditioned probability of getting", v ,"given", current,"is",conditioned_prep_counts[[v]]/(i-previous))
-    print(output)
+    # print separation for easier readability
+    print("##########")
+    
+    # index-previous will yield the number of beverages in our current category
+    number_of_beverages_in_category = i-previous
+    print(number_of_beverages_in_category)
+  
+    # conditioned probability will be the number of times this prep is shown under the category, divided by the total number of items under the category
+    conditioned_probability = conditioned_prep_counts[[v]]/number_of_beverages_in_category
+    
+    # print the conditioned probabilities for each prep under category
+    output_conditioned = paste("P(", v ," | ", current,") = ",conditioned_probability, sep="")
+    print(output_conditioned)
+    
+    p_category = number_of_beverages_in_category/number_of_items
+    p_intersection = p_category * conditioned_probability
+    # print the intersection probabilities for each prep under category
+    output_intersection = paste("P(", v ," ∩ ", current,") = ",p_intersection, sep="")
+    print(output_intersection)
   }
+  # set the previous to i so we can later calculate the relative position correctly
   previous = i
 }
