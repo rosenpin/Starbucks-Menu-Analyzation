@@ -141,7 +141,7 @@ while (i<=length(categories)) {
     # increase the index used for the loop
     i = i+1
     # if i exceeds the length of the categories -1 (including the first line of the csv), break this loop
-    if (i >= length(categories)-1){
+    if (i > length(categories)){
       break
     }
   }
