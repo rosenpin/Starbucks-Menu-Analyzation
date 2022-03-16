@@ -1,4 +1,18 @@
+# importing database to dataset
 dataset = read.csv(file = "starbucks_drinkMenu_expanded.csv")
+
+##### F #####
+beverage <- unique(dataset$Beverage)
+# getting only latte beverages
+latte_beverages <- c()
+for (i in 1:length(beverage)) {
+  if (grepl("Latte", beverage[i])) {
+    latte_beverages <-  append(latte_beverages, beverage[i])
+  }
+}
+
+comb_result <- choose(length(latte_beverages), 4)
+print(paste("The number of ",4 ," Latte combinations out of ", length(latte_beverages), " is ", comb_result, sep = ""))
 
 ##### G #####
 # fetching the constant variable
