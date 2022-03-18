@@ -1,10 +1,17 @@
+# libraries
+library(ggplot2)
+
 # import the file into a dataset
 dataset = read.csv(file = "starbucks_drinkMenu_expanded.csv")
 
 
 ###### A ######
 print("###### A ######")
-# vector multiplication of calories times caffieine
+
+# number of observations, initially 100, in later part of the question we need 20
+OBSERVATIONS_COUNT = 100 # 20
+
+# vector multiplication of calories times caffeine
 calories_times_caffeine <- dataset$Calories * dataset$Caffeine..mg.
 
 # create empty ranges vector to store results in
@@ -12,7 +19,7 @@ ranges <- c()
 # repeat 10,000 times
 for (i in 1:10000) {
   # generate a random sample of 100 items from our multiplied values (calories*caffeine from before)
-  random_sample <- sample(calories_times_caffeine, size=20, replace = TRUE)
+  random_sample <- sample(calories_times_caffeine, size=OBSERVATIONS_COUNT, replace = TRUE)
   # get the 25% and 75% percentile
   qts <- quantile(random_sample, probs=c(.25,.75))
   # calculate the diff between the 25% item value and the 75% item value
@@ -53,6 +60,8 @@ for (i in 1:100){
 var(ad_ratio)
 
 ###### C ######
+print("###### C ######")
+
 # get total fats sorted from low to high
 total_fats <- sort(dataset$Total.Fat..g.)
 # get saturated fats sorted from low to high
@@ -83,6 +92,8 @@ hist(cor_vector2)
 abline(v=cor_value1)
 
 ###### D ######
+print("###### D ######")
+
 # generate random normal distributed vector
 normal_dist <- rnorm(1000)
 # draw it
@@ -103,6 +114,8 @@ while (TRUE){
 }
 
 ###### E ######
+print("###### E ######")
+
 # import hash library
 library(hash)
 
@@ -170,3 +183,111 @@ while (i<=length(categories)) {
   # set the previous to i so we can later calculate the relative position correctly
   previous = i
 }
+
+# importing database to dataset
+dataset = read.csv(file = "starbucks_drinkMenu_expanded.csv")
+
+##### F #####
+print("###### F ######")
+
+beverage <- unique(dataset$Beverage)
+# getting only latte beverages
+latte_beverages <- c()
+for (i in 1:length(beverage)) {
+  if (grepl("Latte", beverage[i])) {
+    latte_beverages <-  append(latte_beverages, beverage[i])
+  }
+}
+
+comb_result <- choose(length(latte_beverages), 4)
+print(paste("The number of ",4 ," Latte combinations out of ", length(latte_beverages), " is ", comb_result, sep = ""))
+
+##### G #####
+print("###### G ######")
+
+# fetching the constant variable
+constant_variable <- dataset$Total.Fat..g.
+# function for finding the mode value
+findmode <- function(v) {
+  uniqv <- unique(v)
+  uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+# function for finding deviation percentage from a given value
+find_deviation_percentage <- function(values, c) {
+  not_the_number <- 0
+  for (i in 1:length(values)) {
+    if (values[i] != c) {
+      not_the_number <- not_the_number+1
+    }
+  }
+  return((100*not_the_number)/length(values))
+}
+
+# getting median, mean and mode values
+cv_median <- median(constant_variable)
+cv_mean <- mean(constant_variable)
+cv_mode <- findmode(constant_variable)
+# getting median, mean and mode deviation percentages
+cv_median_dev_percent <- find_deviation_percentage(constant_variable, cv_median)
+cv_mean_dev_percent <- find_deviation_percentage(constant_variable, cv_mean)
+cv_mode_dev_percent <- find_deviation_percentage(constant_variable, cv_mode)
+
+# creating a name vector for the three deviations
+s_names <- c("median deviation percentage", "mean deviation percentage", "mode deviation percentage")
+# getting highest value of the three deviations
+highest_percentage <- s_names[which.max(c(cv_median_dev_percent, cv_mean_dev_percent, cv_mode_dev_percent))]
+# getting lowest value of the three deviations
+lowest_percentage <- s_names[which.min(c(cv_median_dev_percent, cv_mean_dev_percent, cv_mode_dev_percent))]
+
+# posting highest and lowest values
+output_log <- paste("The highest deviation percentage value is the " , highest_percentage , ", and the lowest is the " , lowest_percentage , sep = "")
+print(output_log)
+
+# import the file into a dataset
+dataset = read.csv(file = "starbucks_drinkMenu_expanded.csv")
+
+###### H ######
+print("###### H ######")
+
+top_rating = 0
+top_drink = ""
+# go through all drinks
+for (i in seq_along(dataset$Beverage)){
+  # calculate rating for each drink
+  rating = (dataset$Protein..g.[i] * 100) + dataset$Caffeine..mg.[i] - (dataset$Total.Fat..g.[i]*50)
+  # if rating is highest we've seen
+  if (rating > top_rating){
+    # update top rating
+    top_rating <- rating
+    # update top drink name
+    top_drink = paste(dataset$Beverage[i], dataset$Beverage_prep[i])
+  }
+}
+# print the healthiest drink name
+print(paste("Top drink is:",top_drink))
+
+
+###### I ######")
+print("###### I ######")
+
+dataset = read.csv(file = "starbucks_drinkMenu_expanded.csv")
+
+library(foreach)
+
+# define what is considered a healthy drink
+healthy_rating_threshold = 1000
+
+# go through all our drinks in parallel
+healthy_drinks <- foreach(i=seq_along(dataset$Beverage)) %do% {
+  # calculate the rating for each drink
+  rating = (dataset$Protein..g.[i] * 100) + dataset$Caffeine..mg.[i] - (dataset$Total.Fat..g.[i]*50)
+  # get the drink name
+  drink_name = paste(dataset$Beverage[i], dataset$Beverage_prep[i])
+  # if the drink is healthy
+  if(rating > healthy_rating_threshold){
+    # yield it back to our healthy drinks
+    paste(drink_name)
+  }
+}
+# remove all null objects (that got here from the for each) from our data set
+healthy_drinks <- Filter(Negate(is.null), healthy_drinks)
