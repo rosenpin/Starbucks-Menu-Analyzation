@@ -62,10 +62,10 @@ var(ad_ratio)
 ###### C ######
 print("###### C ######")
 
-# get total fats sorted from low to high
-total_fats <- sort(dataset$Total.Fat..g.)
-# get saturated fats sorted from low to high
-saturated_fats <- sort(dataset$Saturated.Fat..g.)
+# get total fats
+total_fats <- dataset$Total.Fat..g.
+# get saturated fats
+saturated_fats <- dataset$Saturated.Fat..g.
 # calculate correlation between total fats and saturated fats
 cor_value1 = cor(total_fats, saturated_fats)
 
@@ -75,11 +75,25 @@ cor_vector2 <- c()
 # get the number of rows in our dataset (total fats and saturated fats have the same count)
 dataset_length = length(total_fats)
 
+# given a vector of indexes, return those indexes values from vec
+get_values_by_indexes <- function(vec, indexes) {
+  # initialize empty vector
+  res = c()
+  for (i in indexes){
+    # add all relevant indexes
+    res = append(res, vec[i])
+  }
+  return(res)
+}
+
 # repeat 250 times
 for (i in 1:250){
+  # which rows we want to sample randomly
+  random_indexes = sample(c(1:dataset_length),size=dataset_length*0.7)
   # sample from 70% of items
-  random_total_fat = sort(sample(total_fats, size = dataset_length*0.7))
-  random_saturated_fat = sort(sample(saturated_fats, size = dataset_length*0.7))
+  random_total_fat = get_values_by_indexes(total_fats,random_indexes)
+  random_saturated_fat = get_values_by_indexes(saturated_fats,random_indexes)
+  
   # calculate correlation between total fats and saturated fats
   temp_cor_value = cor(random_total_fat, random_saturated_fat)
   # store value to draw it later
